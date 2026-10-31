@@ -13,7 +13,7 @@ export const ColorModeToggle = () => {
   const next = current === 'dark' ? 'light' : 'dark'
 
   return (
-    <Tooltip title={`Switch to ${next} mode`}>
+    <Tooltip title={`Switch to ${next} mode`} sx={{ display: 'flex', alignItems: 'flex-end' }}>
       <IconButton onClick={() => setMode(next)} aria-label={`Switch to ${next} mode`}>
         <AppIcon name={current === 'dark' ? 'light' : 'dark'} />
       </IconButton>

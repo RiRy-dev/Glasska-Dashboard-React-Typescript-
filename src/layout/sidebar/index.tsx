@@ -43,6 +43,8 @@ export default function Sidebar() {
       sx={{
         position: 'sticky',
         minWidth: isMobile ? 74 : 272,
+        height: '100vh',
+        overflow: 'hidden',
         top: 0,
         bgcolor: 'background.paper',
         justifyContent: 'space-between',
@@ -62,9 +64,11 @@ export default function Sidebar() {
         <Divider />
         <List>{navAddIns}</List>
       </Box>
-      <ColorModeToggle />
       <Stack sx={{ gap: 2 }}>
-        <List>{navOthers}</List>
+        <List>
+          <ColorModeToggle />
+          {navOthers}
+        </List>
         <Stack direction={'row'} sx={{ gap: '12px', alignItems: 'center', padding: '16px 12px' }}>
           <Badge
             color='primary'

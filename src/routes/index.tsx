@@ -14,7 +14,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: routers.LANDING,
-        element: <Dashboard disableGutters />,
+        element: <Dashboard />,
         errorElement: <></>
       },
       {
