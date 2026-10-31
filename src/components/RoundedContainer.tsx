@@ -34,7 +34,7 @@ export default function RoundedContainer({ type, children, title, px = 2, py = 2
     <>
       {type === 'chart' ? (
         <ChartContainer>
-          <Typography variant='subtitle1' sx={{ color: '#101928', px: 2, py: 2 }}>
+          <Typography variant='subtitle1' sx={{ color: 'text.secondary', px: 2, py: 2 }}>
             {title}
           </Typography>
           <Divider />

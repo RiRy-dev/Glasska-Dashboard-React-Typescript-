@@ -1,11 +1,13 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography, useMediaQuery } from '@mui/material'
 import RoundedContainer from '@/components/RoundedContainer'
 import { AppIcon } from '@/core'
 import { formatDate } from '@/util'
 
 export default function Greeting() {
+  const isPhablet = useMediaQuery('(min-width:560px)')
+
   return (
-    <Stack direction={'row'} sx={{ justifyContent: 'space-between' }}>
+    <Stack direction={isPhablet ? 'row' : 'column'} sx={{ justifyContent: 'space-between' }}>
       <Stack>
         <Typography variant='h3' sx={{ color: 'text.secondary' }}>
           Welcome Irvan,
@@ -13,6 +15,7 @@ export default function Greeting() {
         <Typography variant='h6'>WIt’s a sunny day today, ready to make money today? 😊</Typography>
       </Stack>
       <RoundedContainer
+        title=''
         type='data'
         sx={{ width: 'fit-content', flex: 'none', alignItems: 'center', px: 1, py: 0.75, gap: 1 }}
       >
