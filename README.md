@@ -36,3 +36,4 @@ import Logo from '@/assets/svg/logo.svg?react'
 ```
 
 Without the suffix, an SVG import resolves to its URL.
+//GitHub account testing
