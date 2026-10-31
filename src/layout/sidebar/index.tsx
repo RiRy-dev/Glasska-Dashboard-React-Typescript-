@@ -27,6 +27,8 @@ function Circle() {
 
 export default function Sidebar() {
   const isMobile = useMediaQuery('(max-width: 768px)')
+  const isPhoneWide = useMediaQuery('(min-width:480px')
+
   const navMain = SIDEBAR.main.map(item => (
     <NavItem key={item.label} label={item.label} url={item.url} count={item.count} />
   ))
@@ -38,59 +40,61 @@ export default function Sidebar() {
   ))
 
   return (
-    <Stack
-      direction='column'
-      sx={{
-        position: 'sticky',
-        minWidth: isMobile ? 74 : 272,
-        height: '100vh',
-        overflow: 'hidden',
-        top: 0,
-        bgcolor: 'background.paper',
-        justifyContent: 'space-between',
-        px: 1.5
-      }}
-    >
-      <Box>
-        <NavLink to='/'>
-          <AppIcon
-            name={isMobile ? 'dashboard' : 'logo'}
-            width='100%'
-            height='auto'
-            sx={{ display: 'flex', alignItems: 'center', paddingBlock: 2 }}
-          />
-        </NavLink>
-        <List>{navMain}</List>
-        <Divider />
-        <List>{navAddIns}</List>
-      </Box>
-      <Stack sx={{ gap: 2 }}>
-        <List>
-          <ColorModeToggle />
-          {navOthers}
-        </List>
-        <Stack direction={'row'} sx={{ gap: '12px', alignItems: 'center', padding: '16px 12px' }}>
-          <Badge
-            color='primary'
-            overlap='circular'
-            variant='dot'
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right'
-            }}
-          >
-            <Circle />
-          </Badge>
-          {!isMobile && (
-            <Stack>
-              <Typography variant='h6' sx={{ fontWeight: 600 }}>
-                Admin Manager
-              </Typography>
-              <Typography variant='h6'>admin1@glasska.com</Typography>
-            </Stack>
-          )}
+    isPhoneWide && (
+      <Stack
+        direction='column'
+        sx={{
+          position: 'sticky',
+          minWidth: isMobile ? 74 : 272,
+          height: '100vh',
+          overflow: 'hidden',
+          top: 0,
+          bgcolor: 'background.paper',
+          justifyContent: 'space-between',
+          px: 1.5
+        }}
+      >
+        <Box>
+          <NavLink to='/'>
+            <AppIcon
+              name={isMobile ? 'dashboard' : 'logo'}
+              width='100%'
+              height='auto'
+              sx={{ display: 'flex', alignItems: 'center', paddingBlock: 2 }}
+            />
+          </NavLink>
+          <List>{navMain}</List>
+          <Divider />
+          <List>{navAddIns}</List>
+        </Box>
+        <Stack sx={{ gap: 2 }}>
+          <List>
+            <ColorModeToggle />
+            {navOthers}
+          </List>
+          <Stack direction={'row'} sx={{ gap: '12px', alignItems: 'center', padding: '16px 12px' }}>
+            <Badge
+              color='primary'
+              overlap='circular'
+              variant='dot'
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right'
+              }}
+            >
+              <Circle />
+            </Badge>
+            {!isMobile && (
+              <Stack>
+                <Typography variant='h6' sx={{ fontWeight: 600 }}>
+                  Admin Manager
+                </Typography>
+                <Typography variant='h6'>admin1@glasska.com</Typography>
+              </Stack>
+            )}
+          </Stack>
         </Stack>
       </Stack>
-    </Stack>
+    )
   )
 }

@@ -53,14 +53,8 @@ export const OpportunityPieChart = () => {
         {
           breakpoint: 1024,
           options: {
-            chart: {
-              height: 560
-            },
             title: {
               align: 'center'
-            },
-            legend: {
-              position: 'bottom'
             }
           }
         },
@@ -68,7 +62,8 @@ export const OpportunityPieChart = () => {
           breakpoint: 640,
           options: {
             chart: {
-              width: '100%'
+              width: '100%',
+              height: 500
             },
             title: {
               align: 'center'

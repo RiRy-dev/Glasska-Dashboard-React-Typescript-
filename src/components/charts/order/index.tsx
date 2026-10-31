@@ -54,7 +54,7 @@ const OrderBarChart = () => {
           borderRadiusApplication: 'end', // 'around', 'end'
           dataLabels: {
             total: {
-              enabled: true,
+              enabled: false,
               style: {
                 fontSize: '13px',
                 fontWeight: 900

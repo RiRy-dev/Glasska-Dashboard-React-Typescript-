@@ -47,8 +47,8 @@
 }
 
 .apexcharts-legend {
-  display: flex;
+  display: flex !important;
   align-items: flex-start;
-  flex-direction: column;
+  flex-direction: column !important;
   overflow: hidden !important;
 }
