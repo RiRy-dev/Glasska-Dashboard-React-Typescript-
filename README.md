@@ -40,3 +40,4 @@ Without the suffix, an SVG import resolves to its URL.
 I'm howto888-second trial
 trial1
 trial2
+trial3
