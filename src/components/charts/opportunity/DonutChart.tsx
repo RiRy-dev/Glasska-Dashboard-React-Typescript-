@@ -61,31 +61,20 @@ export const OpportunityDonutChart = () => {
       },
       responsive: [
         {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 320
-            },
-            legend: {
-              position: 'top'
-            }
-          }
-        },
-        {
-          breakpoint: 1400,
+          breakpoint: 1024,
           options: {
             title: {
               align: 'center'
-            },
-            legend: {
-              position: 'bottom'
             }
           }
         },
         {
-          breakpoint: 1320,
+          breakpoint: 640,
           options: {
-            chart: { width: 400 },
+            chart: {
+              width: '100%',
+              height: 480
+            },
             title: {
               align: 'center'
             },

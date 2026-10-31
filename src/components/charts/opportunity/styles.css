@@ -45,3 +45,10 @@
   letter-spacing: 0%;
   padding-left: 20px;
 }
+
+.apexcharts-legend {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden !important;
+}
