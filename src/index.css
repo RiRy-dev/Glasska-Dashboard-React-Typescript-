@@ -1,0 +1,4 @@
+/* Base styles come from MUI CssBaseline and the theme in src/theme */
+html {
+  scroll-behavior: smooth;
+}
