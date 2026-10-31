@@ -8,6 +8,7 @@ export const OpportunityPieChart = () => {
     options: {
       chart: {
         width: '100%',
+        height: 600,
         type: 'pie'
       },
       colors: ['#47AF2A', '#695D48', '#D0C094', '#28C5EE'],
@@ -25,7 +26,6 @@ export const OpportunityPieChart = () => {
       legend: {
         show: true,
         position: 'left',
-        width: 200,
         formatter: function (seriesName, opts) {
           const color = opts.w.config.colors[opts.seriesIndex]
           const label = opts.w.config.labels[opts.seriesIndex]
@@ -54,7 +54,21 @@ export const OpportunityPieChart = () => {
           breakpoint: 1024,
           options: {
             chart: {
-              height: 500
+              height: 560
+            },
+            title: {
+              align: 'center'
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        },
+        {
+          breakpoint: 640,
+          options: {
+            chart: {
+              width: '100%'
             },
             title: {
               align: 'center'

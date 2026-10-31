@@ -12,7 +12,7 @@ export default function Greeting() {
         <Typography variant='h3' sx={{ color: 'text.secondary' }}>
           Welcome Irvan,
         </Typography>
-        <Typography variant='h6'>WIt’s a sunny day today, ready to make money today? 😊</Typography>
+        <Typography variant='h6'>It’s a sunny day today, ready to make money today? 😊</Typography>
       </Stack>
       <RoundedContainer
         title=''
