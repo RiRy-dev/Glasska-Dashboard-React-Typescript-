@@ -2,3 +2,53 @@
 html {
   scroll-behavior: smooth;
 }
+span {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #081526;
+}
+strong {
+  font-weight: 500 !important;
+  color: #a1aebc;
+}
+
+.status {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-items: center;
+  height: 20px;
+  padding-left: 26px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.status::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.progress {
+  color: #fc7138;
+}
+
+.progress::before {
+  background-color: #fc713814;
+  background-image: radial-gradient(circle, #fc7138 30%, transparent 35%);
+}
+.completed {
+  color: #47af2a;
+}
+
+.completed::before {
+  background-color: #47af2a14;
+  background-image: radial-gradient(circle, #47af2a 30%, transparent 35%);
+}

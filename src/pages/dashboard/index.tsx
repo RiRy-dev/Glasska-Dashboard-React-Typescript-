@@ -6,6 +6,7 @@ import TerritorySales from './TerritorySales'
 import TerritoryOpportunity from './TerritoryOpportunity'
 import { OpportunityDonutChart } from '@/components/charts/opportunity'
 import RoundedContainer from '@/components/RoundedContainer'
+import Notifications from './Notifications'
 
 export default function Dashboard() {
   return (
@@ -15,7 +16,7 @@ export default function Dashboard() {
       <OrderOverView />
       <Stack direction='row' sx={{ gap: 2, flexWrap: 'wrap' }}>
         <TerritorySales />
-        <TerritorySales />
+        <Notifications />
       </Stack>
       <Stack direction='row' sx={{ gap: 2, flexWrap: 'wrap' }}>
         <TerritoryOpportunity />

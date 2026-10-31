@@ -19,6 +19,8 @@ import Total from '@/assets/svg/total.svg?react'
 import Completed from '@/assets/svg/completed.svg?react'
 import Overdue from '@/assets/svg/overdue.svg?react'
 import Notifications from '@/assets/svg/notifications.svg?react'
+import Arrow from '@/assets/svg/arrow.svg?react'
+import Jason from '@/assets/svg/jason.svg?react'
 
 export const ICON_MAP = {
   dark: DarkMode,
@@ -39,7 +41,9 @@ export const ICON_MAP = {
   total: Total,
   completed: Completed,
   overdue: Overdue,
-  notifications: Notifications
+  notifications: Notifications,
+  arrow: Arrow,
+  jason: Jason
 }
 
 export type IconName = keyof typeof ICON_MAP

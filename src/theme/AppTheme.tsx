@@ -32,6 +32,14 @@ const theme = createTheme({
       lineHeight: '145%',
       fontWeight: 600
     },
+    subtitle2: {
+      display: 'flex',
+      fontWeight: 500,
+      fontSize: '16px',
+      lineHeight: '24px',
+      color: '#081526'
+    },
+
     h3: {
       fontWeight: 600,
       fontSize: 24,
@@ -62,8 +70,15 @@ const theme = createTheme({
           paddingBottom: 0
         }
       }
-    }
-    // MuiButton: { defaultProps: { disableElevation: true } },
+    },
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          subtitle2: 'span'
+        }
+      }
+    },
+    MuiButton: { defaultProps: { disableElevation: true }, styleOverrides: { root: { padding: 0 } } }
     // MuiCard: { defaultProps: { variant: 'outlined' } }
   }
 })
