@@ -2,16 +2,17 @@ import { routers } from '@/constants'
 import { AppIcon } from '@/core'
 import { Chip, Stack, styled, Typography, useMediaQuery } from '@mui/material'
 import { NavLink } from 'react-router'
-import { sidebar } from '@/constants/sidebar'
+import { Sidebar } from '@/constants/sidebar'
+
 const CustomNavLink = styled(NavLink)(({ theme }) => {
   const { palette } = theme.vars || theme
+  const { shape } = theme.vars || theme
 
   return {
     display: 'flex',
-    flexDirection: 'Row',
-    gap: theme.spacing(1.5),
-    padding: theme.spacing(1.5, 2),
-    borderRadius: theme.shape.borderRadius,
+    flexDirection: 'row',
+    padding: '12px 16px',
+    borderRadius: shape.borderRadius,
     color: palette.text.primary,
     fontSize: 14,
     lineHeight: '145%',
@@ -28,12 +29,12 @@ const CustomNavLink = styled(NavLink)(({ theme }) => {
   }
 })
 
-export default function NavItem({ label, url, count }: sidebar) {
+export default function NavItem({ label, url, count }: Sidebar) {
   const isMobile = useMediaQuery('(min-width: 768px)')
   const isPhoneWide = useMediaQuery('(max-width:480px')
 
   return (
-    <CustomNavLink to={url} end={url === routers.DASHBOARD}>
+    <CustomNavLink to={url}>
       <Stack
         direction='row'
         sx={{

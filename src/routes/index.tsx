@@ -11,16 +11,17 @@ const routes = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: routers.LANDING,
         element: <Dashboard />,
-        errorElement: <></>
+        errorElement: <NotFound />
       },
       {
         path: '*',
         element: <NotFound />,
-        errorElement: <></>
+        errorElement: <NotFound />
       }
     ]
   }
