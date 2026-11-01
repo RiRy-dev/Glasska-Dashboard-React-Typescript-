@@ -1,13 +1,22 @@
-import { Box, CircularProgress, Container } from '@mui/material'
+import { Box, CircularProgress, Container, useMediaQuery } from '@mui/material'
 import { Suspense } from 'react'
 import { Outlet } from 'react-router'
-
+import Header from './header'
 import Sidebar from './sidebar'
 
 export default function Layout() {
+  const isPhoneWide = useMediaQuery('(min-width: 480px)')
+
   return (
-    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'row', scrollbarGutter: 'stable' }}>
-      <Sidebar />
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: isPhoneWide ? 'row' : 'column',
+        scrollbarGutter: 'stable'
+      }}
+    >
+      {isPhoneWide ? <Sidebar /> : <Header />}
       <Box
         component='main'
         sx={{

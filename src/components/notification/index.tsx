@@ -6,11 +6,11 @@ export default function Notification() {
   const isPhoneWide = useMediaQuery('(min-width: 480px)')
 
   return (
-    <Stack direction='row' sx={{ gap: 2, alignItems: 'flex-start' }}>
+    <Stack direction='row' sx={{ gap: 2, alignItems: 'flex-start', marginBottom: 2 }}>
       <AppIcon name='jason' width={40} height={40} />
       <Stack direction='column' sx={{ gap: 2, flexGrow: 1 }}>
         <Stack direction='column' sx={{ gap: 0.5 }}>
-          <span>
+          <span className='dark'>
             Jason Stathem <strong> update the order </strong> PO_FrontStore_#183
           </span>
           <Typography variant='h6'>8 minutes ago</Typography>

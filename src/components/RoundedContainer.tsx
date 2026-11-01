@@ -1,4 +1,5 @@
 import { Container, Divider, Stack, styled, Typography, useMediaQuery } from '@mui/material'
+import RangeSelect from './RangeSelect'
 
 const ChartContainer = styled(Container)(({ theme }) => {
   const { palette } = theme.vars || theme
@@ -34,9 +35,12 @@ export default function RoundedContainer({ type, children, title, px = 2, py = 2
     <>
       {type === 'chart' ? (
         <ChartContainer>
-          <Typography variant='subtitle1' sx={{ color: 'text.secondary', px: 2, py: 2 }}>
-            {title}
-          </Typography>
+          <Stack direction={'row'} sx={{ justifyContent: 'space-between' }}>
+            <Typography variant='subtitle1' sx={{ color: 'text.secondary', px: 2, py: 2 }}>
+              {title}
+            </Typography>
+            <RangeSelect />
+          </Stack>
           <Divider />
           <Stack sx={{ px: 2, py: 2 }}>{children}</Stack>
         </ChartContainer>

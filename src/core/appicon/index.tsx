@@ -3,6 +3,7 @@ import { Stack } from '@mui/material'
 import { DarkMode, LightMode } from '@mui/icons-material'
 
 import Logo from '@/assets/svg/logo.svg?react'
+import LogoSmall from '@/assets/svg/logo-small.svg?react'
 import Order from '@/assets/svg/order.svg?react'
 import Schedule from '@/assets/svg/schedule.svg?react'
 import Customer from '@/assets/svg/customer.svg?react'
@@ -20,12 +21,15 @@ import Completed from '@/assets/svg/completed.svg?react'
 import Overdue from '@/assets/svg/overdue.svg?react'
 import Notifications from '@/assets/svg/notifications.svg?react'
 import Arrow from '@/assets/svg/arrow.svg?react'
+import Down from '@/assets/svg/down.svg?react'
 import Jason from '@/assets/svg/jason.svg?react'
 
 export const ICON_MAP = {
   dark: DarkMode,
+  down: Down,
   light: LightMode,
   logo: Logo,
+  logoSmall: LogoSmall,
   order: Order,
   schedule: Schedule,
   customer: Customer,

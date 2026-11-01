@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack } from '@mui/material'
 import Estimation from './Estimation'
 import Greeting from './Greeting'
 import OrderOverView from './OrderOverview'

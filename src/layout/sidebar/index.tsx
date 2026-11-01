@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { AppIcon, ColorModeToggle } from '@/core'
 import { Badge, Box, Divider, List, Stack, Typography, useMediaQuery } from '@mui/material'
 import { NavLink } from 'react-router'
@@ -40,61 +41,69 @@ export default function Sidebar() {
   ))
 
   return (
-    isPhoneWide && (
-      <Stack
-        direction='column'
-        sx={{
-          position: 'sticky',
-          minWidth: isMobile ? 74 : 272,
-          height: '100vh',
-          overflow: 'hidden',
-          top: 0,
-          bgcolor: 'background.paper',
-          justifyContent: 'space-between',
-          px: 1.5
-        }}
-      >
-        <Box>
-          <NavLink to='/'>
-            <AppIcon
-              name={isMobile ? 'dashboard' : 'logo'}
-              width='100%'
-              height='auto'
-              sx={{ display: 'flex', alignItems: 'center', paddingBlock: 2 }}
-            />
-          </NavLink>
-          <List>{navMain}</List>
-          <Divider />
-          <List>{navAddIns}</List>
-        </Box>
-        <Stack sx={{ gap: 2 }}>
-          <List>
-            <ColorModeToggle />
-            {navOthers}
-          </List>
-          <Stack direction={'row'} sx={{ gap: '12px', alignItems: 'center', padding: '16px 12px' }}>
-            <Badge
-              color='primary'
-              overlap='circular'
-              variant='dot'
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right'
-              }}
-            >
-              <Circle />
-            </Badge>
-            {!isMobile && (
+    <Stack
+      direction='column'
+      sx={{
+        position: isPhoneWide ? 'sticky' : 'absolute',
+        minWidth: isMobile ? 74 : 272,
+        width: isPhoneWide ? 'fit-content' : '100%',
+        height: isPhoneWide ? '100vh' : 'fit-content',
+        overflow: 'hidden',
+        top: 0,
+        bgcolor: 'background.paper',
+        justifyContent: isPhoneWide ? 'space-between' : 'flex-start',
+        px: 1.5,
+        zIndex: 10
+      }}
+    >
+      <Box>
+        <NavLink to='/'>
+          <AppIcon
+            name={isMobile ? 'logoSmall' : 'logo'}
+            width='100%'
+            height='auto'
+            sx={{ display: isPhoneWide ? 'flex' : 'none', alignItems: 'center', paddingBlock: 2 }}
+          />
+        </NavLink>
+        <List>{navMain}</List>
+        <Divider />
+        <List>{navAddIns}</List>
+      </Box>
+      <Stack sx={{ gap: 2 }}>
+        <List>
+          <ColorModeToggle />
+          {navOthers}
+        </List>
+        <Stack direction={'row'} sx={{ gap: '12px', alignItems: 'center', padding: '16px 12px' }}>
+          <Badge
+            color='primary'
+            overlap='circular'
+            variant='dot'
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right'
+            }}
+          >
+            <Circle />
+          </Badge>
+          {(!isMobile && (
+            <Stack>
+              <Typography variant='h6' sx={{ fontWeight: 600 }}>
+                Admin Manager
+              </Typography>
+              <Typography variant='h6'>admin1@glasska.com</Typography>
+            </Stack>
+          )) ||
+            (!isPhoneWide && (
               <Stack>
                 <Typography variant='h6' sx={{ fontWeight: 600 }}>
                   Admin Manager
                 </Typography>
                 <Typography variant='h6'>admin1@glasska.com</Typography>
               </Stack>
-            )}
-          </Stack>
+            ))}
         </Stack>
       </Stack>
-    )
+    </Stack>
   )
 }
