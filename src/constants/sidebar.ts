@@ -1,12 +1,12 @@
 import { routers } from './routers'
 
-export interface sidebar {
+export interface Sidebar {
   label: string
   url: string
   count?: number
 }
 
-export const SIDEBAR: Record<string, sidebar[]> = {
+export const SIDEBAR: Record<string, Sidebar[]> = {
   main: [
     {
       label: 'Dashboard',

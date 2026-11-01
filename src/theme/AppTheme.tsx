@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { CssBaseline, useMediaQuery } from '@mui/material'
+import { CssBaseline } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 const theme = createTheme({
@@ -87,7 +87,7 @@ const theme = createTheme({
 interface AppThemeProps {
   children: ReactNode
 }
-
+export const ThemeType = typeof theme
 export const AppTheme = ({ children }: AppThemeProps) => (
   <ThemeProvider theme={theme}>
     <CssBaseline />

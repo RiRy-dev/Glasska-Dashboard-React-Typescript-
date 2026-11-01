@@ -1,6 +1,14 @@
 import { Container, Divider, Stack, styled, Typography, useMediaQuery } from '@mui/material'
 import RangeSelect from './RangeSelect'
 
+interface ContainerType {
+  type: 'chart' | 'data'
+  title: string
+  px: number
+  py: number
+  children: React.ReactNode
+}
+
 const ChartContainer = styled(Container)(({ theme }) => {
   const { palette } = theme.vars || theme
 
@@ -30,7 +38,7 @@ const DataContainer = styled(Container)(({ theme }) => {
   }
 })
 
-export default function RoundedContainer({ type, children, title, px = 2, py = 2, ...props }) {
+export default function RoundedContainer({ type, title, px = 2, py = 2, children, ...props }: Partial<ContainerType>) {
   return (
     <>
       {type === 'chart' ? (

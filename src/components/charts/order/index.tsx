@@ -3,7 +3,7 @@ import ReactApexChart from 'react-apexcharts'
 import './styles.css'
 
 const OrderBarChart = () => {
-  const [state, setState] = React.useState({
+  const state = {
     series: [
       {
         name: 'Overdue',
@@ -50,8 +50,8 @@ const OrderBarChart = () => {
       plotOptions: {
         bar: {
           horizontal: false,
-          borderRadius: 10,
-          borderRadiusApplication: 'end', // 'around', 'end'
+          borderRadius: 8,
+          borderRadiusApplication: 'end',
           dataLabels: {
             total: {
               enabled: false,
@@ -94,7 +94,7 @@ const OrderBarChart = () => {
       },
       yaxis: {
         labels: {
-          formatter: function (val) {
+          formatter: function (val: number) {
             return val
           }
         },
@@ -107,7 +107,7 @@ const OrderBarChart = () => {
         opacity: 1
       }
     }
-  })
+  }
 
   return (
     <div>

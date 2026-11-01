@@ -2,6 +2,8 @@ import { AppIcon } from '@/core'
 import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material'
 import { useState } from 'react'
 
+const Items = ['All Time', 'Last Week', 'Last Month', 'Last Year']
+
 export default function RangeSelect() {
   const [selectedValue, setSelectedValue] = useState('All Time')
 
@@ -9,12 +11,13 @@ export default function RangeSelect() {
     setSelectedValue(event.target.value)
   }
 
+  const items = Items.map(value => <MenuItem value={value}>{value}</MenuItem>)
+
   return (
-    <FormControl sx={{ m: 1, minWidth: 120, height: 'fit-content' }} size='small'>
+    <FormControl sx={{ m: 1, minWidth: 120 }} size='small'>
       <Select
         value={selectedValue}
         onChange={handleChange}
-        inputProps={{ 'aria-label': 'Age' }}
         IconComponent={() => <AppIcon name='down' />}
         sx={{ display: 'flex', alignItems: 'center' }}
         slotProps={{
@@ -26,10 +29,7 @@ export default function RangeSelect() {
           }
         }}
       >
-        <MenuItem value='All Time'>All Time</MenuItem>
-        <MenuItem value='Last Week'>Last Week</MenuItem>
-        <MenuItem value='Last Month'>Last Month</MenuItem>
-        <MenuItem value='Last Year'>Last Year</MenuItem>
+        {items}
       </Select>
     </FormControl>
   )

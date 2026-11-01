@@ -6,6 +6,7 @@ import { formatDate } from '@/util'
 import dayjs from 'dayjs'
 import { useState } from 'react'
 import { Translate } from '@mui/icons-material'
+import { PickerValue } from '@mui/x-date-pickers/internals'
 
 const DatePicker = styled(DateCalendar)(({ theme }) => {
   const { palette } = theme.vars || theme
@@ -28,8 +29,9 @@ export default function Greeting() {
   const isPhablet = useMediaQuery('(min-width:560px)')
   const [visible, setVisible] = useState(false)
   const [selectedDate, setSelectedDate] = useState(formatDate(new Date()))
-  const onDateChange = value => {
-    setSelectedDate(formatDate(value))
+
+  const onDateChange = (value: PickerValue) => {
+    setSelectedDate(formatDate(value as unknown as Date))
     setVisible(false)
   }
 
@@ -56,7 +58,7 @@ export default function Greeting() {
           <Typography variant='h6' sx={{ fontWeight: 600, color: 'text.secondary' }}>
             {selectedDate}
           </Typography>
-          {visible && <DatePicker defaultValue={dayjs('2022-04-17')} onChange={onDateChange} />}
+          {visible && <DatePicker onChange={(value: PickerValue) => onDateChange(value)} />}
         </Stack>
       </RoundedContainer>
     </Stack>

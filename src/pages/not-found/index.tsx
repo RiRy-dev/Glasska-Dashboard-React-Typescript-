@@ -10,7 +10,7 @@ export default function NotFound() {
       title='Page not found'
       description='The page you are looking for does not exist.'
       action={
-        <Button variant='contained' component={Link} to={routers.LANDING}>
+        <Button variant='outlined' component={Link} to={routers.LANDING} sx={{ px: 1, py: 1 }}>
           Back to home
         </Button>
       }
