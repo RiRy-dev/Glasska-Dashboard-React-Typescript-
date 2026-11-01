@@ -8,8 +8,8 @@ export default function Notifications() {
       title='Recent Notifications'
       sx={{ gap: 2, flexDirection: 'column', width: 'calc(50% - 16px)' }}
     >
-      <Notification />
-      <Notification />
+      <Notification status={true} />
+      <Notification status={false} icon='alarm' />
     </RoundedContainer>
   )
 }

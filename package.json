@@ -39,6 +39,7 @@
     "react-router": "^8.5.1",
     "react-toastify": "^11.2.0",
     "redux-persist": "^6.0.0",
+    "rgba": "^0.0.0",
     "yup": "^1.7.1"
   },
   "devDependencies": {

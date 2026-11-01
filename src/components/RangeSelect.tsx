@@ -18,13 +18,15 @@ export default function RangeSelect() {
       <Select
         value={selectedValue}
         onChange={handleChange}
-        IconComponent={() => <AppIcon name='down' />}
-        sx={{ display: 'flex', alignItems: 'center' }}
+        IconComponent={() => <AppIcon name='down' sx={{ pt: '6px', pr: '6px' }} />}
+        sx={{ display: 'flex', alignItems: 'center', borderRadius: '8px' }}
         slotProps={{
           input: {
             sx: {
               pt: 1.5, // 16px
-              pb: 0.5 // 8px
+              pb: 0.5, // 8px
+              pr: '0 !important',
+              color: 'text.disabled'
             }
           }
         }}

@@ -1,13 +1,34 @@
 import { AppIcon } from '@/core'
-import { Button, Chip, Icon, Stack, Typography, useMediaQuery } from '@mui/material'
+import { Box, Button, Icon, Stack, Typography, useMediaQuery } from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 
-export default function Notification() {
+interface NotificationPropsType {
+  status?: boolean
+  icon?: string
+}
+
+export default function Notification({ status, icon }: NotificationPropsType) {
   const isPhoneWide = useMediaQuery('(min-width: 480px)')
 
   return (
     <Stack direction='row' sx={{ gap: 2, alignItems: 'flex-start', marginBottom: 2 }}>
-      <AppIcon name='jason' width={40} height={40} />
+      {icon ? (
+        <Box
+          sx={{
+            width: 40,
+            height: 40,
+            borderRadius: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            bgcolor: 'background.default'
+          }}
+        >
+          <AppIcon name={icon} width={20} height={20} />{' '}
+        </Box>
+      ) : (
+        <AppIcon name='jason' width={40} height={40} />
+      )}
       <Stack direction='column' sx={{ gap: 2, flexGrow: 1 }}>
         <Stack direction='column' sx={{ gap: 0.5 }}>
           <span className='dark'>
@@ -15,11 +36,13 @@ export default function Notification() {
           </span>
           <Typography variant='h6'>8 minutes ago</Typography>
         </Stack>
-        <Stack direction={isPhoneWide ? 'row' : 'column'} sx={{ gap: 2, alignItems: 'center', width: 'fit-content' }}>
-          <span className='status progress'>On Progress</span>
-          <AppIcon name='arrow' />
-          <span className='status completed'>Completed</span>
-        </Stack>
+        {status && (
+          <Stack direction={isPhoneWide ? 'row' : 'column'} sx={{ gap: 2, alignItems: 'center', width: 'fit-content' }}>
+            <span className='status progress'>On Progress</span>
+            <AppIcon name='arrow' />
+            <span className='status completed'>Completed</span>
+          </Stack>
+        )}
       </Stack>
       <Button variant='outlined' sx={{ minWidth: '36px', minHeight: '36px', borderColor: '#E4E7EC' }}>
         <Icon children={<MoreHorizIcon />} sx={{ color: '#5B6581' }} />

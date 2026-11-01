@@ -13,6 +13,9 @@ export const OpportunityPieChart = () => {
       },
       colors: ['#47AF2A', '#695D48', '#D0C094', '#28C5EE'],
       labels: ['United States', 'Rest of The World', 'Not Specified', 'All Territories'],
+      dataLabels: {
+        enabled: false
+      },
       title: {
         text: 'Last synced 20 minutes ago',
         align: 'left',

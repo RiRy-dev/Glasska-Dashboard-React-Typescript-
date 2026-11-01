@@ -13,15 +13,16 @@ const CustomNavLink = styled(NavLink)(({ theme }) => {
     flexDirection: 'row',
     padding: '12px 16px',
     borderRadius: shape.borderRadius,
-    color: palette.text.primary,
-    fontSize: 14,
-    lineHeight: '145%',
+    color: palette.text.disabled,
     textDecoration: 'none',
     whiteSpace: 'nowrap',
     '&:hover': { backgroundColor: palette.secondary.main },
     '&.active': {
-      color: palette.text.secondary,
-      backgroundColor: palette.secondary.main
+      color: palette.text.primary,
+      backgroundColor: palette.secondary
+    },
+    '&.active h6': {
+      fontWeight: 500
     },
     '&.active svg': {
       filter: 'invert(72%) sepia(80%) saturate(1518%) hue-rotate(162deg) brightness(98%) contrast(93%)'
@@ -54,17 +55,28 @@ export default function NavItem({ label, url, count }: Sidebar) {
         >
           <AppIcon name={label.split(' ')[0].toLowerCase()} />
           {isPhoneWide && (
-            <Typography variant='h6' sx={{ gap: 4, fontWeight: 500 }}>
+            <Typography variant='h6' sx={{ gap: 4 }}>
               {label}
             </Typography>
           )}
           {isMobile && (
-            <Typography variant='h6' sx={{ gap: 4, fontWeight: 500 }}>
+            <Typography variant='h6' sx={{ gap: 4 }}>
               {label}
             </Typography>
           )}
         </Stack>
-        {isMobile && count && <Chip label={count} />}
+        {isMobile && count && (
+          <Chip
+            label={count}
+            sx={{
+              height: 'fit-content',
+              '& .MuiChip-label': {
+                px: 1,
+                font: '500 12px/145% Inter'
+              }
+            }}
+          />
+        )}
       </Stack>
     </CustomNavLink>
   )
