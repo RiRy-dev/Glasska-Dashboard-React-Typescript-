@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactApexChart from 'react-apexcharts'
 import './styles.css'
+import { colors } from '@mui/material'
 
 const OrderBarChart = () => {
   const state = {
@@ -31,6 +32,32 @@ const OrderBarChart = () => {
         }
       },
       colors: ['#28C5EE', '#47AF2A', '#D0C094'],
+      dataLabels: {
+        enabled: false
+      },
+      tooltip: {
+        followCursor: true,
+        arrow: false,
+        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+          return (
+            '<div class="apexchart-tooltip" >' +
+            '<span class="apexchart-tooltip__item" style="--main-color:#D0C094">' +
+            series[2][dataPointIndex] +
+            ' total task' +
+            '</span>' +
+            '<span class="apexchart-tooltip__item" style="--main-color:#47AF2A">' +
+            series[1][dataPointIndex] +
+            ' completed' +
+            '</span>' +
+            '<span class="apexchart-tooltip__item" style="--main-color:#28C5EE">' +
+            series[0][dataPointIndex] +
+            ' overdue' +
+            '</span>' +
+            '<div class="custom-tooltip-arrow"></div>' +
+            '</div>'
+          )
+        }
+      },
       responsive: [
         {
           breakpoint: 1024,
@@ -64,6 +91,17 @@ const OrderBarChart = () => {
         }
       },
       xaxis: {
+        labels: {
+          style: {
+            colors: '#A1AEBC', // Sets the color for all x-axis labels
+            fontFamily: 'Inter',
+            fontWeight: 500,
+            fontSize: '16px',
+            lineHeight: '24px',
+            letterSpacing: '0%',
+            textAlign: 'center'
+          }
+        },
         categories: [
           'Jan',
           'Feb',

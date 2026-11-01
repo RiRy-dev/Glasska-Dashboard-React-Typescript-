@@ -3,6 +3,7 @@ import { Stack } from '@mui/material'
 import { DarkMode, LightMode } from '@mui/icons-material'
 
 import Logo from '@/assets/svg/logo.svg?react'
+import Alarm from '@/assets/svg/alarm.svg?react'
 import LogoSmall from '@/assets/svg/logo-small.svg?react'
 import Order from '@/assets/svg/order.svg?react'
 import Schedule from '@/assets/svg/schedule.svg?react'
@@ -25,6 +26,7 @@ import Down from '@/assets/svg/down.svg?react'
 import Jason from '@/assets/svg/jason.svg?react'
 
 export const ICON_MAP = {
+  alarm: Alarm,
   dark: DarkMode,
   down: Down,
   light: LightMode,
@@ -89,7 +91,8 @@ export const AppIcon: FC<AppIconProps> = ({
         width: 'max-content',
 
         color: colors,
-        '& svg': { width: width || size || '100%', height: height || size, borderRadius: borderRadius }
+        '& svg': { width: width || size || '100%', height: height || size, borderRadius: borderRadius },
+        '& path': { fill: colors }
       }}
       {...props}
     >

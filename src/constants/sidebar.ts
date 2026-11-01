@@ -37,7 +37,7 @@ export const SIDEBAR: Record<string, Sidebar[]> = {
   ],
   addIns: [
     {
-      label: 'google',
+      label: 'Google Drive',
       url: routers.GOOGLE
     },
     {

@@ -38,24 +38,26 @@ export default function Greeting() {
   return (
     <Stack direction={isPhablet ? 'row' : 'column'} sx={{ justifyContent: 'space-between' }}>
       <Stack>
-        <Typography variant='h3' sx={{ color: 'text.secondary' }}>
+        <Typography variant='h3' sx={{ color: 'text.primary' }}>
           Welcome Irvan,
         </Typography>
-        <Typography variant='h6'>It’s a sunny day today, ready to make money today? 😊</Typography>
+        <Typography variant='h6' sx={{ color: '#475367' }}>
+          It’s a sunny day today, ready to make money today? 😊
+        </Typography>
       </Stack>
       <RoundedContainer
         title=''
         type='data'
         sx={{ width: 'fit-content', flex: 'none', alignItems: 'center', px: 1, py: 0.75, gap: 1 }}
       >
-        <IconButton sx={{ bgcolor: 'background.default' }} onClick={() => setVisible(prev => !prev)}>
+        <IconButton sx={{ bgcolor: 'common.background' }} onClick={() => setVisible(prev => !prev)}>
           <AppIcon name='schedule' />
         </IconButton>
         <Stack direction='column' sx={{ position: 'relative' }}>
-          <Typography variant='h6' sx={{ fontSize: '10px' }}>
+          <Typography variant='h6' sx={{ fontSize: '10px', color: 'text.disabled' }}>
             Today's Date
           </Typography>
-          <Typography variant='h6' sx={{ fontWeight: 600, color: 'text.secondary' }}>
+          <Typography variant='h6' sx={{ fontWeight: 600, color: 'text.primary' }}>
             {selectedDate}
           </Typography>
           {visible && <DatePicker onChange={(value: PickerValue) => onDateChange(value)} />}

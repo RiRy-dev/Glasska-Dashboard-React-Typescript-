@@ -13,7 +13,7 @@ export const EmptyState = ({ title, description, action }: EmptyStateProps) => (
       <Typography variant='h6' sx={{ fontWeight: 700 }}>
         {title}
       </Typography>
-      {description && <Typography color='text.secondary'>{description}</Typography>}
+      {description && <Typography color='text.primary'>{description}</Typography>}
       {action && <Stack sx={{ mt: 2 }}>{action}</Stack>}
     </Stack>
   </Paper>

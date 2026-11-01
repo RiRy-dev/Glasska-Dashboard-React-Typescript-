@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { CssBaseline } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-const theme = createTheme({
+export const theme = createTheme({
   cssVariables: { colorSchemeSelector: 'class' },
   colorSchemes: {
     light: {
@@ -11,17 +11,19 @@ const theme = createTheme({
         primary: { main: '#47AF2A', light: '#cccccc' },
         secondary: { main: '#DCF6FC', dark: '#E4E7EC' },
         background: { default: '#F5F7F9', paper: '#ffffff' },
-        text: { primary: '#5B6581', secondary: '#081526' },
+        text: { disabled: '#5B6581', primary: '#081526' },
+        common: { background: '#F5F7F9' },
         divider: '#dddddd'
       }
     },
     dark: {
       palette: {
         primary: { main: '#818cf8', light: '#312929' },
-        secondary: { main: '#1f434e', dark: '#829cc9' },
-        background: { default: '#0f172a', paper: '#172442' },
-        text: { primary: '#5B6581', secondary: '#c7c7c7' },
-        divider: '#2e4265'
+        secondary: { main: '#1f434e', dark: '#182132' },
+        background: { default: '#090E1C', paper: '#0E1525' },
+        text: { disabled: '#ACB0B7', primary: '#ffffff' },
+        common: { background: '#2F384D' },
+        divider: '#182132'
       }
     }
   },
@@ -80,7 +82,8 @@ const theme = createTheme({
         }
       }
     },
-    MuiButton: { defaultProps: { disableElevation: true }, styleOverrides: { root: { padding: 0 } } }
+    MuiButton: { defaultProps: { disableElevation: true }, styleOverrides: { root: { padding: 0 } } },
+    MuiChip: { styleOverrides: { root: { font: '500 12px/145% Inter !important' } } }
   }
 })
 

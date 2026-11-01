@@ -44,7 +44,7 @@ export default function RoundedContainer({ type, title, px = 2, py = 2, children
       {type === 'chart' ? (
         <ChartContainer>
           <Stack direction={'row'} sx={{ justifyContent: 'space-between' }}>
-            <Typography variant='subtitle1' sx={{ color: 'text.secondary', px: 2, py: 2 }}>
+            <Typography variant='subtitle1' sx={{ color: 'text.primary', px: 2, py: 2 }}>
               {title}
             </Typography>
             <RangeSelect />

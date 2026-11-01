@@ -91,7 +91,9 @@ export default function Sidebar() {
               <Typography variant='h6' sx={{ fontWeight: 600 }}>
                 Admin Manager
               </Typography>
-              <Typography variant='h6'>admin1@glasska.com</Typography>
+              <Typography variant='h6' sx={{ color: 'text.disabled' }}>
+                admin1@glasska.com
+              </Typography>
             </Stack>
           )) ||
             (!isPhoneWide && (
@@ -99,7 +101,9 @@ export default function Sidebar() {
                 <Typography variant='h6' sx={{ fontWeight: 600 }}>
                   Admin Manager
                 </Typography>
-                <Typography variant='h6'>admin1@glasska.com</Typography>
+                <Typography variant='h6' sx={{ color: 'text.disabled' }}>
+                  admin1@glasska.com
+                </Typography>
               </Stack>
             ))}
         </Stack>

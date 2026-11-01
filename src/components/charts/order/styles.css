@@ -2,3 +2,63 @@
   max-width: 100%;
   margin: 35px auto;
 }
+.apexchart-tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 200px;
+  padding: 16px 24px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #fff;
+  z-index: 10;
+  box-shadow: 0px 4px 6px -2px #1018280d;
+  box-shadow: 0px 12px 16px -4px #1018281a;
+}
+
+.apexchart-tooltip__item {
+  position: relative;
+  color: var(--main-color);
+  width: fit-content;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.apexchart-tooltip__item::before {
+  content: '';
+  display: inline-flex;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  background-color: var(--main-color);
+  border-radius: 16px;
+}
+
+.apexchart-tooltip__item::after {
+  content: '';
+  position: absolute;
+  width: calc(100% + 24px);
+  height: calc(100% + 8px);
+  background-color: var(--main-color);
+  opacity: 0.19;
+  top: -4px;
+  left: -12px;
+  border-radius: 16px;
+}
+/* Modify the arrow pseudo-elements to point down (acting like a bottom arrow) */
+.apexcharts-tooltip {
+  transform: translateX(-50%);
+}
+.custom-tooltip-arrow {
+  position: absolute;
+  bottom: -4px; /* Pull it slightly past the bottom edge */
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg); /* Creates a diamond shape */
+
+  width: 12px;
+  height: 12px;
+  background: white; /* Matches the box perfectly */
+}
