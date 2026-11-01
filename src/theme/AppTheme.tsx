@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { CssBaseline } from '@mui/material'
+import { CssBaseline, useMediaQuery } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 const theme = createTheme({
@@ -8,18 +8,20 @@ const theme = createTheme({
   colorSchemes: {
     light: {
       palette: {
-        primary: { main: '#47AF2A' },
+        primary: { main: '#47AF2A', light: '#cccccc' },
         secondary: { main: '#DCF6FC', dark: '#E4E7EC' },
         background: { default: '#F5F7F9', paper: '#ffffff' },
-        text: { primary: '#5B6581', secondary: '#081526' }
+        text: { primary: '#5B6581', secondary: '#081526' },
+        divider: '#dddddd'
       }
     },
     dark: {
       palette: {
-        primary: { main: '#818cf8' },
+        primary: { main: '#818cf8', light: '#312929' },
         secondary: { main: '#1f434e', dark: '#829cc9' },
-        background: { default: '#0f172a', paper: '#1e293b' },
-        text: { primary: '#5B6581', secondary: '#c7c7c7' }
+        background: { default: '#0f172a', paper: '#172442' },
+        text: { primary: '#5B6581', secondary: '#c7c7c7' },
+        divider: '#2e4265'
       }
     }
   },
@@ -79,7 +81,6 @@ const theme = createTheme({
       }
     },
     MuiButton: { defaultProps: { disableElevation: true }, styleOverrides: { root: { padding: 0 } } }
-    // MuiCard: { defaultProps: { variant: 'outlined' } }
   }
 })
 

@@ -30,6 +30,7 @@ const CustomNavLink = styled(NavLink)(({ theme }) => {
 
 export default function NavItem({ label, url, count }: sidebar) {
   const isMobile = useMediaQuery('(min-width: 768px)')
+  const isPhoneWide = useMediaQuery('(max-width:480px')
 
   return (
     <CustomNavLink to={url} end={url === routers.DASHBOARD}>
@@ -42,8 +43,20 @@ export default function NavItem({ label, url, count }: sidebar) {
           gap: 4
         }}
       >
-        <Stack direction='row' sx={{ gap: 1.5, flexGrow: 1 }}>
+        <Stack
+          direction='row'
+          sx={{
+            gap: 1.5,
+            flexGrow: 1,
+            justifyContent: isMobile ? 'flex-start' : isPhoneWide ? 'flex-start' : 'center'
+          }}
+        >
           <AppIcon name={label.split(' ')[0].toLowerCase()} />
+          {isPhoneWide && (
+            <Typography variant='h6' sx={{ gap: 4, fontWeight: 500 }}>
+              {label}
+            </Typography>
+          )}
           {isMobile && (
             <Typography variant='h6' sx={{ gap: 4, fontWeight: 500 }}>
               {label}
