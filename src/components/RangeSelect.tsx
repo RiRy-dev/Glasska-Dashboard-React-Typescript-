@@ -10,13 +10,21 @@ export default function RangeSelect() {
   }
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size='small'>
+    <FormControl sx={{ m: 1, minWidth: 120, height: 'fit-content' }} size='small'>
       <Select
         value={selectedValue}
         onChange={handleChange}
         inputProps={{ 'aria-label': 'Age' }}
         IconComponent={() => <AppIcon name='down' />}
         sx={{ display: 'flex', alignItems: 'center' }}
+        slotProps={{
+          input: {
+            sx: {
+              pt: 1.5, // 16px
+              pb: 0.5 // 8px
+            }
+          }
+        }}
       >
         <MenuItem value='All Time'>All Time</MenuItem>
         <MenuItem value='Last Week'>Last Week</MenuItem>
