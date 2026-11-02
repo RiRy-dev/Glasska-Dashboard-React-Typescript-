@@ -1,4 +1,3 @@
-import { routers } from '@/constants'
 import { AppIcon } from '@/core'
 import { Chip, Stack, styled, Typography, useMediaQuery } from '@mui/material'
 import { NavLink } from 'react-router'
@@ -19,7 +18,7 @@ const CustomNavLink = styled(NavLink)(({ theme }) => {
     '&:hover': { backgroundColor: palette.secondary.main },
     '&.active': {
       color: palette.text.primary,
-      backgroundColor: palette.secondary
+      backgroundColor: palette.secondary.main
     },
     '&.active h6': {
       fontWeight: 500
@@ -38,17 +37,17 @@ export default function NavItem({ label, url, count }: Sidebar) {
     <CustomNavLink to={url}>
       <Stack
         direction='row'
+        spacing={4}
         sx={{
+          flex: 1,
           alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%',
-          gap: 4
+          justifyContent: 'space-between'
         }}
       >
         <Stack
           direction='row'
+          spacing={1.5}
           sx={{
-            gap: 1.5,
             flexGrow: 1,
             justifyContent: isMobile ? 'flex-start' : isPhoneWide ? 'flex-start' : 'center'
           }}

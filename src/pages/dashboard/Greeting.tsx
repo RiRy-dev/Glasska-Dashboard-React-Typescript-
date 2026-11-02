@@ -1,11 +1,9 @@
-import { Box, Button, IconButton, Stack, styled, Typography, useMediaQuery } from '@mui/material'
+import { IconButton, Stack, styled, Typography, useMediaQuery } from '@mui/material'
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import RoundedContainer from '@/components/RoundedContainer'
 import { AppIcon } from '@/core'
 import { formatDate } from '@/util'
-import dayjs from 'dayjs'
 import { useState } from 'react'
-import { Translate } from '@mui/icons-material'
 import { PickerValue } from '@mui/x-date-pickers/internals'
 
 const DatePicker = styled(DateCalendar)(({ theme }) => {
@@ -14,7 +12,6 @@ const DatePicker = styled(DateCalendar)(({ theme }) => {
 
   return {
     position: 'absolute',
-    top: 0,
     left: isPhablet ? 'calc(100% + 8px)' : -8,
     transform: isPhablet ? 'translateX(-100%)' : 'translateX(-50px)',
     backgroundColor: palette.background.paper,

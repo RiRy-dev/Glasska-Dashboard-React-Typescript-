@@ -11,7 +11,11 @@ export default function RangeSelect() {
     setSelectedValue(event.target.value)
   }
 
-  const items = Items.map(value => <MenuItem value={value}>{value}</MenuItem>)
+  const items = Items.map(value => (
+    <MenuItem value={value} sx={{ fontSize: '14px' }}>
+      {value}
+    </MenuItem>
+  ))
 
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size='small'>

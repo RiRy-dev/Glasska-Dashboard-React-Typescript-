@@ -15,7 +15,7 @@ export default function Header() {
         sx={{
           justifyContent: 'space-between',
           position: 'sticky',
-          backgroundColor: 'background.paper',
+          bgcolor: 'background.paper',
           borderBottom: '1px solid',
           borderColor: 'divider',
           paddingInline: '20px'
