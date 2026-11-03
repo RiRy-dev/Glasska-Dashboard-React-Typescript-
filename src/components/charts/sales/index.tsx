@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactApexChart from 'react-apexcharts'
 import './styles.css'
+import { ChartState } from '@/declarations'
 
 const SalesBarChart = () => {
-  const [state, setState] = React.useState({
+  const state: ChartState = {
     series: [
       {
         name: 'Actual',
@@ -69,7 +70,7 @@ const SalesBarChart = () => {
         enabled: false
       }
     }
-  })
+  }
 
   return (
     <div>

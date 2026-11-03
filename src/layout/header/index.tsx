@@ -18,14 +18,16 @@ export default function Header() {
           bgcolor: 'background.paper',
           borderBottom: '1px solid',
           borderColor: 'divider',
-          paddingInline: '20px'
+          px: '20px',
+          py: '20px'
         }}
       >
         <AppIcon name='logoSmall' width='100%' height='100%' />
 
-        <Stack direction={'row'} sx={{ alignItems: 'center' }}>
+        <Stack direction={'row'} sx={{ alignItems: 'center' }} aria-label='hamburger'>
           <ColorModeToggle />
           <IconButton
+            aria-label='icon button'
             onClick={() => {
               setVisible(prev => !prev)
             }}

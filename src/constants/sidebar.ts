@@ -38,11 +38,11 @@ export const SIDEBAR: Record<string, Sidebar[]> = {
   addIns: [
     {
       label: 'Google Drive',
-      url: routers.GOOGLE
+      url: 'http://drive.google.com'
     },
     {
       label: 'paypal',
-      url: routers.PAYPAL
+      url: 'http://www.paypal.com'
     }
   ],
   others: [

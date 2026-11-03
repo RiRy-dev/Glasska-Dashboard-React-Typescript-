@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import { Outlet } from 'react-router'
 import Header from './header'
 import Sidebar from './sidebar'
+import Greeting from '@/pages/dashboard/Greeting'
 
 export default function Layout() {
   const isPhoneWide = useMediaQuery('(min-width: 480px)')
@@ -27,6 +28,7 @@ export default function Layout() {
         }}
       >
         <Container component='main' sx={{ flex: 1, px: 3, py: 3, height: '100vh' }}>
+          <Greeting />
           <Suspense
             fallback={
               <Box sx={{ display: 'flex', justifyContent: 'center', py: 10 }}>

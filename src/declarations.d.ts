@@ -1,7 +1,6 @@
-interface ImportMetaEnv {
-  readonly VITE_API_BASE_URL?: string
-}
+import { ApexOptions } from 'apexcharts'
 
-interface ImportMeta {
-  readonly env: ImportMetaEnv
+export interface ChartState {
+  series: ApexOptions['series']
+  options: ApexOptions
 }

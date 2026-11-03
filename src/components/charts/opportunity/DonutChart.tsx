@@ -1,9 +1,10 @@
-import React from 'react'
 import ReactApexChart from 'react-apexcharts'
+import { ApexLegendFormatterOpts } from 'apexcharts'
+import { ChartState } from '@/declarations'
 import './styles.css'
 
 export const OpportunityDonutChart = () => {
-  const [state, setState] = React.useState({
+  const state: ChartState = {
     series: [150, 2574],
     options: {
       chart: {
@@ -35,10 +36,13 @@ export const OpportunityDonutChart = () => {
       },
       legend: {
         position: 'left',
-        formatter: function (seriesName, opts) {
-          const color = opts.w.config.colors[opts.seriesIndex]
-          const label = opts.w.config.labels[opts.seriesIndex]
-          const value = opts.w.config.series[opts.seriesIndex]
+        formatter: function (_, opts: ApexLegendFormatterOpts) {
+          const colors: string[] = opts.w.config.colors as string[]
+          const labels: string[] = opts.w.config.labels as string[]
+          const series: number[] = opts.w.config.series as number[]
+          const color = colors[opts.seriesIndex]
+          const label = labels[opts.seriesIndex]
+          const value = series[opts.seriesIndex]
 
           return `<div class="label-container"
                         style="--font-color:${color};margin-top:30px;--background-color:${color + '50'}"
@@ -85,7 +89,7 @@ export const OpportunityDonutChart = () => {
         }
       ]
     }
-  })
+  }
 
   return (
     <div>

@@ -33,7 +33,10 @@ export default function Greeting() {
   }
 
   return (
-    <Stack direction={isPhablet ? 'row' : 'column'} sx={{ justifyContent: 'space-between' }}>
+    <Stack
+      direction={isPhablet ? 'row' : 'column'}
+      sx={{ justifyContent: 'space-between', position: 'sticky', top: '24px', mb: 2 }}
+    >
       <Stack>
         <Typography variant='h3' sx={{ color: 'text.primary' }}>
           Welcome Irvan,
@@ -47,7 +50,11 @@ export default function Greeting() {
         type='data'
         sx={{ width: 'fit-content', flex: 'none', alignItems: 'center', px: 1, py: 0.75, gap: 1 }}
       >
-        <IconButton sx={{ bgcolor: 'common.background' }} onClick={() => setVisible(prev => !prev)}>
+        <IconButton
+          aria-label='icon button'
+          sx={{ bgcolor: 'common.background' }}
+          onClick={() => setVisible(prev => !prev)}
+        >
           <AppIcon name='schedule' />
         </IconButton>
         <Stack direction='column' sx={{ position: 'relative' }}>

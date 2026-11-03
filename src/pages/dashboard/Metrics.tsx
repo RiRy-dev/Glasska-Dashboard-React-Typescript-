@@ -1,4 +1,4 @@
-import { AppIcon } from '@/core'
+import { AppIcon, IconName } from '@/core'
 import { Avatar, Chip, Stack, Typography, useColorScheme } from '@mui/material'
 
 export default function Metrics({ type, figure, badgeFigure, badgeContent }: Record<string, string>) {
@@ -45,7 +45,11 @@ export default function Metrics({ type, figure, badgeFigure, badgeContent }: Rec
         )}
       </Stack>
       <Avatar sx={{ bgcolor: 'common.background', border: `1px solid #E4E7EC` }}>
-        <AppIcon name={type.split(' ')[0].toLowerCase()} width={20} colors={mode === 'light' ? '#081526' : '#09BEF9'} />
+        <AppIcon
+          name={type.split(' ')[0].toLowerCase() as IconName}
+          width={20}
+          colors={mode === 'light' ? '#081526' : '#09BEF9'}
+        />
       </Avatar>
     </Stack>
   )
