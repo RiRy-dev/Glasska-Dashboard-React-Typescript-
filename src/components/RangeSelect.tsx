@@ -11,11 +11,16 @@ export default function RangeSelect() {
     setSelectedValue(event.target.value)
   }
 
-  const items = Items.map(value => <MenuItem value={value}>{value}</MenuItem>)
+  const items = Items.map(value => (
+    <MenuItem value={value} sx={{ fontSize: '14px' }} aria-label={value}>
+      {value}
+    </MenuItem>
+  ))
 
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size='small'>
       <Select
+        inputProps={{ 'aria-label': 'Select configuration profile' }}
         value={selectedValue}
         onChange={handleChange}
         IconComponent={() => <AppIcon name='down' sx={{ pt: '6px', pr: '6px' }} />}

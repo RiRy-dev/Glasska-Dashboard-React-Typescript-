@@ -1,11 +1,9 @@
-import { Box, Button, IconButton, Stack, styled, Typography, useMediaQuery } from '@mui/material'
+import { IconButton, Stack, styled, Typography, useMediaQuery } from '@mui/material'
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import RoundedContainer from '@/components/RoundedContainer'
 import { AppIcon } from '@/core'
 import { formatDate } from '@/util'
-import dayjs from 'dayjs'
 import { useState } from 'react'
-import { Translate } from '@mui/icons-material'
 import { PickerValue } from '@mui/x-date-pickers/internals'
 
 const DatePicker = styled(DateCalendar)(({ theme }) => {
@@ -14,7 +12,6 @@ const DatePicker = styled(DateCalendar)(({ theme }) => {
 
   return {
     position: 'absolute',
-    top: 0,
     left: isPhablet ? 'calc(100% + 8px)' : -8,
     transform: isPhablet ? 'translateX(-100%)' : 'translateX(-50px)',
     backgroundColor: palette.background.paper,
@@ -36,7 +33,10 @@ export default function Greeting() {
   }
 
   return (
-    <Stack direction={isPhablet ? 'row' : 'column'} sx={{ justifyContent: 'space-between' }}>
+    <Stack
+      direction={isPhablet ? 'row' : 'column'}
+      sx={{ justifyContent: 'space-between', position: 'sticky', top: '24px', mb: 2 }}
+    >
       <Stack>
         <Typography variant='h3' sx={{ color: 'text.primary' }}>
           Welcome Irvan,
@@ -50,7 +50,11 @@ export default function Greeting() {
         type='data'
         sx={{ width: 'fit-content', flex: 'none', alignItems: 'center', px: 1, py: 0.75, gap: 1 }}
       >
-        <IconButton sx={{ bgcolor: 'common.background' }} onClick={() => setVisible(prev => !prev)}>
+        <IconButton
+          aria-label='icon button'
+          sx={{ bgcolor: 'common.background' }}
+          onClick={() => setVisible(prev => !prev)}
+        >
           <AppIcon name='schedule' />
         </IconButton>
         <Stack direction='column' sx={{ position: 'relative' }}>

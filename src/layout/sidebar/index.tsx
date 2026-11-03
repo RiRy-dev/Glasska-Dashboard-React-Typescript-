@@ -1,6 +1,5 @@
-import dayjs from 'dayjs'
 import { AppIcon, ColorModeToggle } from '@/core'
-import { Badge, Box, Divider, List, Stack, Typography, useMediaQuery } from '@mui/material'
+import { Badge, Box, Divider, List, ListItem, Stack, Typography, useMediaQuery } from '@mui/material'
 import { NavLink } from 'react-router'
 import { SIDEBAR } from '@/constants/sidebar'
 import NavItem from '@/components/NavItem'
@@ -31,13 +30,19 @@ export default function Sidebar() {
   const isPhoneWide = useMediaQuery('(min-width:480px')
 
   const navMain = SIDEBAR.main.map(item => (
-    <NavItem key={item.label} label={item.label} url={item.url} count={item.count} />
+    <ListItem key={item.label} sx={{ px: 0, py: 0 }}>
+      <NavItem label={item.label} url={item.url} count={item.count} />
+    </ListItem>
   ))
   const navAddIns = SIDEBAR.addIns.map(item => (
-    <NavItem key={item.label} label={item.label} url={item.url} count={item.count} />
+    <ListItem key={item.label} sx={{ px: 0, py: 0 }}>
+      <NavItem label={item.label} url={item.url} count={item.count} />
+    </ListItem>
   ))
   const navOthers = SIDEBAR.others.map(item => (
-    <NavItem key={item.label} label={item.label} url={item.url} count={item.count} />
+    <ListItem key={item.label} sx={{ px: 0, py: 0 }}>
+      <NavItem key={item.label} label={item.label} url={item.url} count={item.count} />
+    </ListItem>
   ))
 
   return (
@@ -47,7 +52,7 @@ export default function Sidebar() {
         position: isPhoneWide ? 'sticky' : 'absolute',
         minWidth: isMobile ? 74 : 272,
         width: isPhoneWide ? 'fit-content' : '100%',
-        height: isPhoneWide ? '100vh' : 'fit-content',
+        height: '100vh',
         overflow: 'hidden',
         top: 0,
         bgcolor: 'background.paper',
@@ -57,12 +62,12 @@ export default function Sidebar() {
       }}
     >
       <Box>
-        <NavLink to='/'>
+        <NavLink to='/' aria-label='Read more about Seminole tax hike'>
           <AppIcon
             name={isMobile ? 'logoSmall' : 'logo'}
             width='100%'
             height='auto'
-            sx={{ display: isPhoneWide ? 'flex' : 'none', alignItems: 'center', paddingBlock: 2 }}
+            sx={{ display: isPhoneWide ? 'flex' : 'none', m: 'auto', alignItems: 'center', paddingBlock: 2 }}
           />
         </NavLink>
         <List>{navMain}</List>
@@ -71,7 +76,9 @@ export default function Sidebar() {
       </Box>
       <Stack sx={{ gap: 2 }}>
         <List>
-          <ColorModeToggle />
+          <ListItem key={'theme-button'} sx={{ px: 1.5, py: 2 }}>
+            <ColorModeToggle />
+          </ListItem>
           {navOthers}
         </List>
         <Stack direction={'row'} sx={{ gap: '12px', alignItems: 'center', padding: '16px 12px' }}>

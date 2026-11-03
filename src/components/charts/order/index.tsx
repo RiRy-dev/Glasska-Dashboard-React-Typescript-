@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactApexChart from 'react-apexcharts'
 import './styles.css'
-import { colors } from '@mui/material'
+import { ChartState } from '@/declarations'
 
 const OrderBarChart = () => {
-  const state = {
+  const state: ChartState = {
     series: [
       {
         name: 'Overdue',
@@ -38,7 +38,7 @@ const OrderBarChart = () => {
       tooltip: {
         followCursor: true,
         arrow: false,
-        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+        custom: function ({ series, dataPointIndex }) {
           return (
             '<div class="apexchart-tooltip" >' +
             '<span class="apexchart-tooltip__item" style="--main-color:#D0C094">' +
@@ -91,15 +91,15 @@ const OrderBarChart = () => {
         }
       },
       xaxis: {
+        axisBorder: {
+          show: false
+        },
         labels: {
           style: {
             colors: '#A1AEBC', // Sets the color for all x-axis labels
             fontFamily: 'Inter',
             fontWeight: 500,
-            fontSize: '16px',
-            lineHeight: '24px',
-            letterSpacing: '0%',
-            textAlign: 'center'
+            fontSize: '16px'
           }
         },
         categories: [
@@ -133,7 +133,7 @@ const OrderBarChart = () => {
       yaxis: {
         labels: {
           formatter: function (val: number) {
-            return val
+            return val.toString()
           }
         },
         max: 80
@@ -144,7 +144,7 @@ const OrderBarChart = () => {
       fill: {
         opacity: 1
       }
-    }
+    } as const
   }
 
   return (

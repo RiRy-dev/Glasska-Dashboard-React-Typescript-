@@ -1,7 +1,6 @@
 import { FC } from 'react'
-import { Stack } from '@mui/material'
+import { Stack, SxProps, Theme } from '@mui/material'
 import { DarkMode, LightMode } from '@mui/icons-material'
-
 import Logo from '@/assets/svg/logo.svg?react'
 import Alarm from '@/assets/svg/alarm.svg?react'
 import LogoSmall from '@/assets/svg/logo-small.svg?react'
@@ -55,13 +54,14 @@ export const ICON_MAP = {
 export type IconName = keyof typeof ICON_MAP
 
 interface AppIconProps {
-  name: string
+  name: IconName
   width?: string | number
   height?: string | number
   className?: string
   size?: number
   colors?: string
   borderRadius?: string
+  sx?: SxProps<Theme>
 }
 
 export const AppIcon: FC<AppIconProps> = ({
@@ -72,9 +72,9 @@ export const AppIcon: FC<AppIconProps> = ({
   width,
   borderRadius,
   className = '',
-  ...props
+  sx
 }) => {
-  const IconComponent = ICON_MAP[name]
+  const IconComponent = ICON_MAP[name as IconName]
 
   if (!IconComponent) {
     console.error(`Icon "${name}" not found.`)
@@ -92,9 +92,9 @@ export const AppIcon: FC<AppIconProps> = ({
 
         color: colors,
         '& svg': { width: width || size || '100%', height: height || size, borderRadius: borderRadius },
-        '& path': { fill: colors }
+        '& path': { fill: colors },
+        ...sx
       }}
-      {...props}
     >
       <IconComponent />
     </Stack>

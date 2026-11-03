@@ -3,8 +3,8 @@ import { createBrowserRouter } from 'react-router'
 
 import { routers } from '@/constants/routers'
 import Layout from '@/layout'
-import Dashboard from '@/pages/dashboard'
 
+const Dashboard = lazy(() => import('@/pages/dashboard'))
 const NotFound = lazy(() => import('@/pages/not-found'))
 
 const routes = createBrowserRouter([

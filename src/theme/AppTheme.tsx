@@ -66,6 +66,22 @@ export const theme = createTheme({
     }
   },
   components: {
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          maxWidth: '102px',
+          font: '500 14px/145% Inter !important' // Default font size for all Select components
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          maxWidth: '102px',
+          font: '500 14px/145% Inter !important' // Default font size for all Menu Items
+        }
+      }
+    },
     MuiContainer: {
       defaultProps: { disableGutters: true },
       styleOverrides: {

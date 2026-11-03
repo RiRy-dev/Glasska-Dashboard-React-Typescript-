@@ -1,4 +1,4 @@
-import { AppIcon } from '@/core'
+import { AppIcon, IconName } from '@/core'
 import { Box, Button, Icon, Stack, Typography, useMediaQuery } from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 
@@ -24,7 +24,7 @@ export default function Notification({ status, icon }: NotificationPropsType) {
             bgcolor: 'background.default'
           }}
         >
-          <AppIcon name={icon} width={20} height={20} />{' '}
+          <AppIcon name={icon as IconName} width={20} height={20} />{' '}
         </Box>
       ) : (
         <AppIcon name='jason' width={40} height={40} />
@@ -44,7 +44,11 @@ export default function Notification({ status, icon }: NotificationPropsType) {
           </Stack>
         )}
       </Stack>
-      <Button variant='outlined' sx={{ minWidth: '36px', minHeight: '36px', borderColor: '#E4E7EC' }}>
+      <Button
+        variant='outlined'
+        sx={{ minWidth: '36px', minHeight: '36px', borderColor: '#E4E7EC' }}
+        aria-label='detail button'
+      >
         <Icon children={<MoreHorizIcon />} sx={{ color: '#5B6581' }} />
       </Button>
     </Stack>

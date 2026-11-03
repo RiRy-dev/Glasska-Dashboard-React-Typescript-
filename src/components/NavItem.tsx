@@ -1,5 +1,4 @@
-import { routers } from '@/constants'
-import { AppIcon } from '@/core'
+import { AppIcon, IconName } from '@/core'
 import { Chip, Stack, styled, Typography, useMediaQuery } from '@mui/material'
 import { NavLink } from 'react-router'
 import { Sidebar } from '@/constants/sidebar'
@@ -11,15 +10,16 @@ const CustomNavLink = styled(NavLink)(({ theme }) => {
   return {
     display: 'flex',
     flexDirection: 'row',
-    padding: '12px 16px',
     borderRadius: shape.borderRadius,
     color: palette.text.disabled,
     textDecoration: 'none',
     whiteSpace: 'nowrap',
+    flex: 1,
+    padding: '12px 16px',
     '&:hover': { backgroundColor: palette.secondary.main },
     '&.active': {
       color: palette.text.primary,
-      backgroundColor: palette.secondary
+      backgroundColor: palette.secondary.main
     },
     '&.active h6': {
       fontWeight: 500
@@ -38,22 +38,22 @@ export default function NavItem({ label, url, count }: Sidebar) {
     <CustomNavLink to={url}>
       <Stack
         direction='row'
+        spacing={4}
         sx={{
+          flex: 1,
           alignItems: 'center',
-          justifyContent: 'space-between',
-          width: '100%',
-          gap: 4
+          justifyContent: 'space-between'
         }}
       >
         <Stack
           direction='row'
+          spacing={1.5}
           sx={{
-            gap: 1.5,
             flexGrow: 1,
             justifyContent: isMobile ? 'flex-start' : isPhoneWide ? 'flex-start' : 'center'
           }}
         >
-          <AppIcon name={label.split(' ')[0].toLowerCase()} />
+          <AppIcon name={label.split(' ')[0].toLowerCase() as IconName} />
           {isPhoneWide && (
             <Typography variant='h6' sx={{ gap: 4 }}>
               {label}
